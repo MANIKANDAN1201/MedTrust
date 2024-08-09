@@ -1,0 +1,56 @@
+name: fakemedicine
+description: "A new Flutter project."
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_barcode_scanner: ^2.0.0
+  firebase_core: ^2.31.0
+  firebase_auth: ^4.2.0
+  cloud_firestore: ^4.17.5
+  http: ^1.2.2
+  googleapis: ^13.1.0
+  googleapis_auth: ^1.6.0
+  barcode_scan2: ^4.3.3
+  image_picker: ^1.1.2
+  shared_preferences: ^2.2.3
+  firebase_storage: ^11.7.7
+  flare_flutter: ^3.0.2
+  firebase_database: ^10.5.7
+  lottie: ^3.1.2
+  pdf: ^3.11.1
+  mailer: ^6.1.2
+  path_provider: ^2.1.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - fonts/Urbanist-SemiBold.ttf
+    - assets/vitals.png
+    - assets/scan.png
+    - assets/medicines.json
+    - assets/images/gopal.png
+    - assets/images/image1.png
+    - assets/image.png
+    - assets/image2.png
+    - assets/top.png
+    - assets/tick.json
+    - assets/no.json
+
+  fonts:
+    - family: Urbanist
+      fonts:
+        - asset: fonts/Urbanist-SemiBold.ttf
+          weight: 600
