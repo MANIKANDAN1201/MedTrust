@@ -27,6 +27,9 @@ dependencies:
   pdf: ^3.11.1
   mailer: ^6.1.2
   path_provider: ^2.1.4
+  video_player: ^2.9.1
+  flutter_local_notifications: ^17.2.2
+  firebase_messaging: ^14.9.4
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +44,7 @@ flutter:
     - assets/vitals.png
     - assets/scan.png
     - assets/medicines.json
+    - assets/Medicines_info.json
     - assets/images/gopal.png
     - assets/images/image1.png
     - assets/image.png
@@ -48,6 +52,7 @@ flutter:
     - assets/top.png
     - assets/tick.json
     - assets/no.json
+    - assets/FAKE.mp4
 
   fonts:
     - family: Urbanist

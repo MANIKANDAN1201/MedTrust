@@ -6,9 +6,10 @@ class NotificationsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Notifications'),
+        backgroundColor: Color(0xFF17395E),
       ),
       body: Center(
-        child: Text('Notifications Page Content'),
+        child: Text('No new notifications'),
       ),
     );
   }

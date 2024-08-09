@@ -75,15 +75,15 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
             _scanResult = "This medicine is genuine.";
           });
         } else {
-          // If product not found in API, check the local JSON file
+          // If product not found in API, check the local JSON files
           await _checkMedicineInJson(barcode);
         }
       } else {
-        // If there's an issue with the API, directly check the JSON file
+        // If there's an issue with the API, directly check the JSON files
         await _checkMedicineInJson(barcode);
       }
     } catch (e) {
-      // On exception, also check the JSON file
+      // On exception, also check the JSON files
       await _checkMedicineInJson(barcode);
     } finally {
       _navigateToResultScreen();
@@ -91,13 +91,14 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
   }
 
   Future<void> _checkMedicineInJson(String barcode) async {
+    bool found = false;
+
+    // Check in 'medicines.json'
     try {
-      // Load the JSON file
       final String jsonString =
           await rootBundle.loadString('assets/medicines.json');
       final List<dynamic> jsonData = jsonDecode(jsonString);
 
-      bool found = false;
       for (var item in jsonData) {
         if (item['Barcode_No'] == barcode) {
           setState(() {
@@ -111,6 +112,39 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
           break;
         }
       }
+    } catch (e) {
+      setState(() {
+        _scanResult = 'Error reading medicines.json: $e';
+        _isFake = true;
+      });
+    }
+
+    if (!found) {
+      // Check in 'Medicines_info.json'
+      try {
+        final String jsonString =
+            await rootBundle.loadString('assets/Medicines_info.json');
+        final List<dynamic> jsonData = jsonDecode(jsonString);
+
+        for (var item in jsonData) {
+          if (item['Barcode_No'] == barcode) {
+            setState(() {
+              _medicineName = item['Name'] ?? "Unknown";
+              _manufacturerName = item['Manufacturer'] ?? "Unknown";
+              _expiryDate = item['Expiry_Date'] ?? "Not Available";
+              _isFake = false;
+              _scanResult = "This medicine is genuine.";
+            });
+            found = true;
+            break;
+          }
+        }
+      } catch (e) {
+        setState(() {
+          _scanResult = 'Error reading Medicines_info.json: $e';
+          _isFake = true;
+        });
+      }
 
       if (!found) {
         setState(() {
@@ -118,13 +152,6 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
           _isFake = true;
         });
       }
-    } catch (e) {
-      setState(() {
-        _scanResult = 'Error reading JSON data: $e';
-        _isFake = true;
-      });
-    } finally {
-      _navigateToResultScreen();
     }
   }
 
