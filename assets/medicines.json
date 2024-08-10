@@ -1,0 +1,1188 @@
+[
+  {
+    "Medicine_ID": "006",
+    "Name": "Amphetamine/dextroamphetamine",
+    "Generic_Name": "Amphetamine/dextroamphetamine",
+    "Brand_Name": "Adderall, Adderall XR",
+    "Form": "Tablet",
+    "Strength": "10mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": ""
+  },
+  {
+    "Medicine_ID": "007",
+    "Name": "Amlodipine",
+    "Generic_Name": "Amlodipine",
+    "Brand_Name": "Norvasc",
+    "Form": "Tablet",
+    "Strength": "5mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": ""
+  },
+  {
+    "Medicine_ID": "008",
+    "Name": "Albuterol HFA",
+    "Generic_Name": "Albuterol",
+    "Brand_Name": "Ventolin HFA, Proair HFA, Proventil HFA",
+    "Form": "Inhaler",
+    "Strength": "90mcg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": ""
+  },
+  {
+    "Medicine_ID": "009",
+    "Name": "Prednisone",
+    "Generic_Name": "Prednisone",
+    "Brand_Name": "Deltasone, Rayos, Prednisone Intensol",
+    "Form": "Tablet",
+    "Strength": "10mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": ""
+  },
+  {
+    "Medicine_ID": "010",
+    "Name": "Gabapentin",
+    "Generic_Name": "Gabapentin",
+    "Brand_Name": "Neurontin",
+    "Form": "Capsule",
+    "Strength": "300mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "363304629019"
+  },
+  {
+    "Medicine_ID": "011",
+    "Name": "Benzonatate",
+    "Generic_Name": "Benzonatate",
+    "Brand_Name": "Tessalon Perles",
+    "Form": "Capsule",
+    "Strength": "100mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "357664134887"
+  },
+  {
+    "Medicine_ID": "012",
+    "Name": "Alprazolam",
+    "Generic_Name": "Alprazolam",
+    "Brand_Name": "Xanax",
+    "Form": "Tablet",
+    "Strength": "0.5mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "368071462197"
+  },
+  {
+    "Medicine_ID": "013",
+    "Name": "Cyclobenzaprine",
+    "Generic_Name": "Cyclobenzaprine",
+    "Brand_Name": "Fexmid",
+    "Form": "Tablet",
+    "Strength": "5mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "331722282055"
+  },
+  {
+    "Medicine_ID": "014",
+    "Name": "Azithromycin",
+    "Generic_Name": "Azithromycin",
+    "Brand_Name": "Zithromax Z-Pak",
+    "Form": "Tablet",
+    "Strength": "500mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "369452171134"
+  },
+  {
+    "Medicine_ID": "015",
+    "Name": "Atorvastatin",
+    "Generic_Name": "Atorvastatin",
+    "Brand_Name": "Lipitor",
+    "Form": "Tablet",
+    "Strength": "20mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "343598317304"
+  },
+  {
+    "Medicine_ID": "016",
+    "Name": "Cetirizine",
+    "Generic_Name": "Cetirizine",
+    "Brand_Name": "Zyrtec",
+    "Form": "Tablet",
+    "Strength": "10mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "345802919397"
+  },
+  {
+    "Medicine_ID": "017",
+    "Name": "Losartan",
+    "Generic_Name": "Losartan",
+    "Brand_Name": "Cozaar",
+    "Form": "Tablet",
+    "Strength": "50mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "368180210061"
+  },
+  {
+    "Medicine_ID": "018",
+    "Name": "Amoxicillin/clavulanate potassium",
+    "Generic_Name": "Amoxicillin/clavulanate potassium",
+    "Brand_Name": "Augmentin",
+    "Form": "Tablet",
+    "Strength": "875mg/125mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "36330476802"
+  },
+  {
+    "Medicine_ID": "019",
+    "Name": "Cephalexin",
+    "Generic_Name": "Cephalexin",
+    "Brand_Name": "Keflex",
+    "Form": "Capsule",
+    "Strength": "500mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "361442162016"
+  },
+  {
+    "Medicine_ID": "020",
+    "Name": "Metformin",
+    "Generic_Name": "Metformin",
+    "Brand_Name": "Riomet",
+    "Form": "Tablet",
+    "Strength": "500mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "324658790015"
+  },
+  {
+    "Medicine_ID": "021",
+    "Name": "Metoprolol succinate ER",
+    "Generic_Name": "Metoprolol succinate",
+    "Brand_Name": "Toprol XL",
+    "Form": "Tablet",
+    "Strength": "50mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "363304009309"
+  },
+  {
+    "Medicine_ID": "022",
+    "Name": "Folic acid",
+    "Generic_Name": "Folic acid",
+    "Brand_Name": "Folvite",
+    "Form": "Tablet",
+    "Strength": "1mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "369315127100"
+  },
+  {
+    "Medicine_ID": "023",
+    "Name": "Hydrochlorothiazide",
+    "Generic_Name": "Hydrochlorothiazide",
+    "Brand_Name": "Microzide",
+    "Form": "Tablet",
+    "Strength": "25mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "369315155011"
+  },
+  {
+    "Medicine_ID": "024",
+    "Name": "Sildenafil citrate",
+    "Generic_Name": "Sildenafil citrate",
+    "Brand_Name": "Viagra, Revatio",
+    "Form": "Tablet",
+    "Strength": "50mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "359651420119"
+  },
+  {
+    "Medicine_ID": "025",
+    "Name": "Trazodone",
+    "Generic_Name": "Trazodone",
+    "Brand_Name": "Desyrel, Oleptro",
+    "Form": "Tablet",
+    "Strength": "50mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "360505265411"
+  },
+  {
+    "Medicine_ID": "026",
+    "Name": "Zolpidem tartrate",
+    "Generic_Name": "Zolpidem tartrate",
+    "Brand_Name": "Ambien",
+    "Form": "Tablet",
+    "Strength": "10mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "352427775307"
+  },
+  {
+    "Medicine_ID": "027",
+    "Name": "Escitalopram oxalate",
+    "Generic_Name": "Escitalopram",
+    "Brand_Name": "Lexapro",
+    "Form": "Tablet",
+    "Strength": "10mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "331722569248"
+  },
+  {
+    "Medicine_ID": "028",
+    "Name": "Clonazepam",
+    "Generic_Name": "Clonazepam",
+    "Brand_Name": "Klonopin",
+    "Form": "Tablet",
+    "Strength": "0.5mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "316729136006"
+  },
+  {
+    "Medicine_ID": "029",
+    "Name": "Methylprednisolone",
+    "Generic_Name": "Methylprednisolone",
+    "Brand_Name": "Medrol",
+    "Form": "Tablet",
+    "Strength": "4mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "370121160915"
+  },
+
+  {
+    "medicine_name": "Paracetamol",
+    "barcode": "4150044782014",
+    "manufacturer_name": "Johnson & Johnson"
+  },
+  {
+    "medicine_name": "Tadalafil",
+    "barcode": "327241113031",
+    "manufacturer_name": "Various"
+  },
+  {
+    "medicine_name": "Methocarbamol",
+    "barcode": "359088724002",
+    "manufacturer_name": "Various"
+  },
+  {
+    "medicine_name": "Fluconazole",
+    "barcode": "325021184660",
+    "manufacturer_name": "Various"
+  },
+  {
+    "medicine_name": "Sertraline",
+    "barcode": "368180353065",
+    "manufacturer_name": "Various"
+  },
+  {
+    "medicine_name": "Doxycycline hyclate",
+    "barcode": "327241141423",
+    "manufacturer_name": "Various"
+  },
+  {
+    "medicine_name": "Furosemide",
+    "barcode": "381565201010",
+    "manufacturer_name": "Various"
+  },
+  {
+    "medicine_name": "Fluoxetine",
+    "barcode": "309045785614",
+    "manufacturer_name": "Various"
+  },
+  {
+    "medicine_name": "Sulfamethoxazole/trimethoprim",
+    "barcode": "353448914501",
+    "manufacturer_name": "Various"
+  },
+  {
+    "medicine_name": "Phenobarbital",
+    "barcode": "313517107163",
+    "manufacturer_name": "Various"
+  },
+  {
+    "medicine_name": "Armour Thyroid",
+    "barcode": "304560464013",
+    "manufacturer_name": "Armour"
+  },
+  {
+    "medicine_name": "Bromphen/pseudoephedrine/dextromethorphan",
+    "barcode": "301210933042",
+    "manufacturer_name": "Various"
+  },
+  {
+    "medicine_name": "Metoprolol tartrate",
+    "barcode": "362332116300",
+    "manufacturer_name": "Various"
+  },
+  {
+    "medicine_name": "Meloxicam",
+    "barcode": "370954077107",
+    "manufacturer_name": "Various"
+  },
+  {
+    "medicine_name": "Pantoprazole sodium",
+    "barcode": "355150202003",
+    "manufacturer_name": "Various"
+  },
+  {
+    "Name": "Goserelin",
+    "Manufacturer": "AstraZeneca",
+    "Barcode_No": "20370720950362"
+  },
+  {
+    "Name": "Trastuzumab",
+    "Manufacturer": "Genentech",
+    "Barcode_No": "8904182750017"
+  },
+
+  {
+    "Name": "Cetuximab",
+    "Manufacturer": "Bristol-Myers Squibb",
+    "Barcode_No": "366733948232"
+  },
+
+  {
+    "Name": "Nivolumab",
+    "Manufacturer": "Bristol-Myers Squibb",
+    "Barcode_No": "300033772111"
+  },
+  {
+    "Name": "Benzonatate",
+    "Manufacturer": "GlaxoSmithKline",
+    "Barcode_No": "369387119010"
+  },
+  {
+    "Name": "Famotidine",
+    "Manufacturer": "Merck",
+    "Barcode_No": "364679374054"
+  },
+  {
+    "Name": "Estradiol",
+    "Manufacturer": "AbbVie",
+    "Barcode_No": "303781452014"
+  },
+  {
+    "Name": "Vitamin D",
+    "Manufacturer": "Various",
+    "Barcode_No": "641528005087"
+  },
+  {
+    "Name": "Amoxicillin",
+    "Manufacturer": "Various",
+    "Barcode_No": "342571233303"
+  },
+  {
+    "Name": "Levothyroxine",
+    "Manufacturer": "Various",
+    "Barcode_No": "305274956320"
+  },
+  {
+    "Name": "Lisinopril",
+    "Manufacturer": "Various",
+    "Barcode_No": "369097968076"
+  },
+  {
+    "Name": "Ibuprofen",
+    "Manufacturer": "Various",
+    "Barcode_No": "099482470777"
+  },
+  {
+    "Name": "Amphetamine/dextroamphetamine",
+    "Manufacturer": "Various",
+    "Barcode_No": "370010041011"
+  },
+  {
+    "Name": "Clonazepam",
+    "Manufacturer": "Roche",
+    "Barcode_No": "316729136006"
+  },
+  {
+    "Name": "Amlodipine",
+    "Manufacturer": "Various",
+    "Barcode_No": "366993263304"
+  },
+  {
+    "Name": "Albuterol HFA",
+    "Manufacturer": "Various",
+    "Barcode_No": "366993019680"
+  },
+  {
+    "Name": "Prednisone",
+    "Manufacturer": "Various",
+    "Barcode_No": "359746171063"
+  },
+  {
+    "Name": "Gabapentin",
+    "Manufacturer": "Various",
+    "Barcode_No": "363304629019"
+  },
+  {
+    "Name": "Benzonatate",
+    "Manufacturer": "Various",
+    "Barcode_No": "357664134887"
+  },
+  {
+    "Name": "Alprazolam",
+    "Manufacturer": "Various",
+    "Barcode_No": "368071462197"
+  },
+  {
+    "Name": "Cyclobenzaprine",
+    "Manufacturer": "Various",
+    "Barcode_No": "331722282055"
+  },
+  {
+    "Name": "Azithromycin",
+    "Manufacturer": "Various",
+    "Barcode_No": "369452171134"
+  },
+  {
+    "Name": "Atorvastatin",
+    "Manufacturer": "Various",
+    "Barcode_No": "343598317304"
+  },
+  {
+    "Name": "Cetirizine",
+    "Manufacturer": "Various",
+    "Barcode_No": "345802919397"
+  },
+  {
+    "Name": "Losartan",
+    "Manufacturer": "Various",
+    "Barcode_No": "368180210061"
+  },
+  {
+    "Name": "Amoxicillin/clavulanate potassium",
+    "Manufacturer": "Various",
+    "Barcode_No": "36330476802"
+  },
+  {
+    "Name": "Cephalexin",
+    "Manufacturer": "Various",
+    "Barcode_No": "361442162016"
+  },
+  {
+    "Name": "Metformin",
+    "Manufacturer": "Various",
+    "Barcode_No": "324658790015"
+  },
+  {
+    "Name": "Metoprolol succinate ER",
+    "Manufacturer": "Various",
+    "Barcode_No": "363304009309"
+  },
+  {
+    "Name": "Folic acid",
+    "Manufacturer": "Various",
+    "Barcode_No": "369315127100"
+  },
+  {
+    "Name": "Hydrochlorothiazide",
+    "Manufacturer": "Various",
+    "Barcode_No": "369315155011"
+  },
+  {
+    "Name": "Sildenafil citrate",
+    "Manufacturer": "Various",
+    "Barcode_No": "367877648118"
+  },
+  {
+    "Name": "Trazodone",
+    "Manufacturer": "Various",
+    "Barcode_No": "360505265411"
+  },
+  {
+    "Name": "Trazodone",
+    "Manufacturer": "Various",
+    "Barcode_No": "360505265411"
+  },
+  {
+    "Name": "Zolpidem tartrate",
+    "Manufacturer": "Various",
+    "Barcode_No": "352427775307"
+  },
+  {
+    "Name": "Escitalopram oxalate",
+    "Manufacturer": "Various",
+    "Barcode_No": "331722569248"
+  },
+  {
+    "Name": "Zolpidem tartrate",
+    "Manufacturer": "Various",
+    "Barcode_No": "352427775307"
+  },
+  {
+    "Name": "Clonazepam",
+    "Manufacturer": "Various",
+    "Barcode_No": "316729136006"
+  },
+  {
+    "Name": "Methylprednisolone",
+    "Manufacturer": "Various",
+    "Barcode_No": "370121160915"
+  },
+  {
+    "medicine_name": "Ibuprofen",
+    "barcode": "096000006746",
+    "manufacturer_name": "Abbott"
+  },
+  {
+    "medicine_name": "Amoxicillin",
+    "barcode": "9781723432729",
+    "manufacturer_name": "GlaxoSmithKline"
+  },
+  {
+    "medicine_name": "Metformin",
+    "barcode": "324658790015",
+    "manufacturer_name": "Merck"
+  },
+  {
+    "medicine_name": "Loratadine",
+    "barcode": "300676122304",
+    "manufacturer_name": "Schering-Plough"
+  },
+  {
+    "medicine_name": "Cetirizine",
+    "barcode": "345802919397",
+    "manufacturer_name": "UCB"
+  },
+  {
+    "medicine_name": "Amlodipine",
+    "barcode": "366993263304",
+    "manufacturer_name": "Pfizer"
+  },
+  {
+    "medicine_name": "Simvastatin",
+    "barcode": "345963565303",
+    "manufacturer_name": "Merck"
+  },
+  {
+    "medicine_name": "Lisinopril",
+    "barcode": "369097968076",
+    "manufacturer_name": "Merck"
+  },
+  {
+    "medicine_name": "Losartan",
+    "barcode": "364380933045",
+    "manufacturer_name": "Merck"
+  },
+  {
+    "medicine_name": "Metronidazole",
+    "barcode": "349884151249",
+    "manufacturer_name": "Merck"
+  },
+  {
+    "medicine_name": "Metoprolol",
+    "barcode": "336000033107",
+    "manufacturer_name": "AstraZeneca"
+  },
+  {
+    "medicine_name": "Atorvastatin",
+    "barcode": "366993263304",
+    "manufacturer_name": "Pfizer"
+  },
+  {
+    "medicine_name": "Gabapentin",
+    "barcode": "371093120044",
+    "manufacturer_name": "Pfizer"
+  },
+  {
+    "medicine_name": "Omeprazole",
+    "barcode": "373457041580",
+    "manufacturer_name": "AstraZeneca"
+  },
+  {
+    "Barcode_No": "4150044782014",
+    "Medicine_ID": "001",
+    "Name": "Paracetamol",
+    "Generic_Name": "Acetaminophen",
+    "Brand_Name": "Tylenol",
+    "Form": "Tablet",
+    "Strength": "500mg",
+    "Manufacturer": "Johnson & Johnson",
+    "Expiry_Date": "2025-12-01",
+    "Price": 10.0
+  },
+  {
+    "Barcode_No": "8906032956655",
+    "Medicine_ID": "001",
+    "Name": "Cetirizine Dihydrochlride hydrochlrode syrup",
+    "Generic_Name": "Cetirizine",
+    "Brand_Name": "Leeford",
+    "Form": "Syrub",
+    "Strength": "500mg",
+    "Manufacturer": "Leeford Healthcare Ltd.",
+    "Expiry_Date": "12/01/2026",
+    "Price": 10.0
+  },
+  {
+    "Medicine_ID": "030",
+    "Name": "Tadalafil",
+    "Generic_Name": "Tadalafil",
+    "Brand_Name": "Cialis",
+    "Form": "Tablet",
+    "Strength": "20mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "327241113031"
+  },
+  {
+    "Medicine_ID": "031",
+    "Name": "Methocarbamol",
+    "Generic_Name": "Methocarbamol",
+    "Brand_Name": "Robaxin",
+    "Form": "Tablet",
+    "Strength": "750mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "359088724002"
+  },
+  {
+    "Medicine_ID": "032",
+    "Name": "Fluconazole",
+    "Generic_Name": "Fluconazole",
+    "Brand_Name": "Diflucan",
+    "Form": "Tablet",
+    "Strength": "150mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "325021184660"
+  },
+  {
+    "Medicine_ID": "033",
+    "Name": "Sertraline",
+    "Generic_Name": "Sertraline",
+    "Brand_Name": "Zoloft",
+    "Form": "Tablet",
+    "Strength": "50mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "368180353065"
+  },
+  {
+    "Medicine_ID": "034",
+    "Name": "Doxycycline hyclate",
+    "Generic_Name": "Doxycycline hyclate",
+    "Brand_Name": "Vibramycin, Acticlate, Targadox",
+    "Form": "Capsule",
+    "Strength": "100mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "327241141423"
+  },
+  {
+    "Medicine_ID": "035",
+    "Name": "Furosemide",
+    "Generic_Name": "Furosemide",
+    "Brand_Name": "Lasix",
+    "Form": "Tablet",
+    "Strength": "40mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "381565201010"
+  },
+  {
+    "Medicine_ID": "036",
+    "Name": "Fluoxetine",
+    "Generic_Name": "Fluoxetine",
+    "Brand_Name": "Prozac",
+    "Form": "Capsule",
+    "Strength": "20mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "309045785614"
+  },
+  {
+    "Medicine_ID": "041",
+    "Name": "Sulfamethoxazole/trimethoprim",
+    "Generic_Name": "Sulfamethoxazole/trimethoprim",
+    "Brand_Name": "Bactrim",
+    "Form": "Tablet",
+    "Strength": "800mg/160mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "353448914501"
+  },
+  {
+    "Medicine_ID": "042",
+    "Name": "Phenobarbital",
+    "Generic_Name": "Phenobarbital",
+    "Brand_Name": "Luminal, Solfoton",
+    "Form": "Tablet",
+    "Strength": "60mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "313517107163"
+  },
+  {
+    "Medicine_ID": "043",
+    "Name": "Armour Thyroid",
+    "Generic_Name": "Desiccated thyroid",
+    "Brand_Name": "Armour Thyroid",
+    "Form": "Tablet",
+    "Strength": "60mg",
+    "Manufacturer": "Armour",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "304560464013"
+  },
+  {
+    "Medicine_ID": "044",
+    "Name": "Bromphen/pseudoephedrine/dextromethorphan",
+    "Generic_Name": "Bromphen/pseudoephedrine/dextromethorphan",
+    "Brand_Name": "Bromfed DM",
+    "Form": "Liquid",
+    "Strength": "4mg/60mg/30mg per 5ml",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "301210933042"
+  },
+  {
+    "Medicine_ID": "045",
+    "Name": "Metoprolol tartrate",
+    "Generic_Name": "Metoprolol tartrate",
+    "Brand_Name": "Lopressor",
+    "Form": "Tablet",
+    "Strength": "50mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "362332116300"
+  },
+  {
+    "Medicine_ID": "046",
+    "Name": "Meloxicam",
+    "Generic_Name": "Meloxicam",
+    "Brand_Name": "Mobic",
+    "Form": "Tablet",
+    "Strength": "15mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "370954077107"
+  },
+  {
+    "Medicine_ID": "047",
+    "Name": "Pantoprazole sodium",
+    "Generic_Name": "Pantoprazole sodium",
+    "Brand_Name": "Protonix",
+    "Form": "Tablet",
+    "Strength": "40mg",
+    "Manufacturer": "Various",
+    "Expiry_Date": "",
+    "Price": "",
+    "Barcode_No": "355150202003"
+  },
+  {
+    "Barcode_No": "096000006746",
+    "Medicine_ID": "002",
+    "Name": "Ibuprofen",
+    "Generic_Name": "Ibuprofen",
+    "Brand_Name": "Advil",
+    "Form": "Capsule",
+    "Strength": "200mg",
+    "Manufacturer": "Abbott",
+    "Expiry_Date": "2024-09-15",
+    "Price": 8.5
+  },
+  {
+    "Barcode_No": "9781723432729",
+    "Medicine_ID": "003",
+    "Name": "Amoxicillin",
+    "Generic_Name": "Amoxicillin",
+    "Brand_Name": "Amoxil",
+    "Form": "Tablet",
+    "Strength": "250mg",
+    "Manufacturer": "GlaxoSmithKline",
+    "Expiry_Date": "2025-06-30",
+    "Price": 12.0
+  },
+  {
+    "Barcode_No": "324658790015",
+    "Medicine_ID": "004",
+    "Name": "Metformin",
+    "Generic_Name": "Metformin",
+    "Brand_Name": "Glucophage",
+    "Form": "Tablet",
+    "Strength": "500mg",
+    "Manufacturer": "Merck",
+    "Expiry_Date": "2026-03-20",
+    "Price": 15.0
+  },
+  {
+    "Barcode_No": "300676122304",
+    "Medicine_ID": "005",
+    "Name": "Loratadine",
+    "Generic_Name": "Loratadine",
+    "Brand_Name": "Claritin",
+    "Form": "Tablet",
+    "Strength": "10mg",
+    "Manufacturer": "Schering-Plough",
+    "Expiry_Date": "2024-11-10",
+    "Price": 11.0
+  },
+  {
+    "Barcode_No": "45802919397",
+    "Medicine_ID": "006",
+    "Name": "Cetirizine",
+    "Generic_Name": "Cetirizine",
+    "Brand_Name": "Zyrtec",
+    "Form": "Tablet",
+    "Strength": "10mg",
+    "Manufacturer": "UCB",
+    "Expiry_Date": "2025-02-01",
+    "Price": 14.0
+  },
+  {
+    "Barcode_No": "369932633046",
+    "Medicine_ID": "007",
+    "Name": "Amlodipine",
+    "Generic_Name": "Amlodipine",
+    "Brand_Name": "Norvasc",
+    "Form": "Tablet",
+    "Strength": "5mg",
+    "Manufacturer": "Pfizer",
+    "Expiry_Date": "2024-07-30",
+    "Price": 18.0
+  },
+  {
+    "Barcode_No": "345963565303",
+    "Medicine_ID": "008",
+    "Name": "Simvastatin",
+    "Generic_Name": "Simvastatin",
+    "Brand_Name": "Zocor",
+    "Form": "Tablet",
+    "Strength": "20mg",
+    "Manufacturer": "Merck",
+    "Expiry_Date": "2025-11-15",
+    "Price": 22.0
+  },
+  {
+    "Barcode_No": "369097968076",
+    "Medicine_ID": "009",
+    "Name": "Lisinopril",
+    "Generic_Name": "Lisinopril",
+    "Brand_Name": "Prinivil",
+    "Form": "Tablet",
+    "Strength": "10mg",
+    "Manufacturer": "Merck",
+    "Expiry_Date": "2024-12-31",
+    "Price": 13.0
+  },
+  {
+    "Barcode_No": "368180210061",
+    "Medicine_ID": "010",
+    "Name": "Losartan",
+    "Generic_Name": "Losartan",
+    "Brand_Name": "Cozaar",
+    "Form": "Tablet",
+    "Strength": "50mg",
+    "Manufacturer": "Merck",
+    "Expiry_Date": "2026-01-10",
+    "Price": 17.0
+  },
+  {
+    "Barcode_No": "362332116300",
+    "Medicine_ID": "011",
+    "Name": "Metoprolol",
+    "Generic_Name": "Metoprolol",
+    "Brand_Name": "Lopressor",
+    "Form": "Tablet",
+    "Strength": "100mg",
+    "Manufacturer": "AstraZeneca",
+    "Expiry_Date": "2025-05-20",
+    "Price": 20.0
+  },
+  {
+    "Barcode_No": "343598317304",
+    "Medicine_ID": "012",
+    "Name": "Atorvastatin",
+    "Generic_Name": "Atorvastatin",
+    "Brand_Name": "Lipitor",
+    "Form": "Tablet",
+    "Strength": "40mg",
+    "Manufacturer": "Pfizer",
+    "Expiry_Date": "2024-08-15",
+    "Price": 25.0
+  },
+  {
+    "Barcode_No": "363304629019",
+    "Medicine_ID": "013",
+    "Name": "Gabapentin",
+    "Generic_Name": "Gabapentin",
+    "Brand_Name": "Neurontin",
+    "Form": "Capsule",
+    "Strength": "300mg",
+    "Manufacturer": "Pfizer",
+    "Expiry_Date": "2025-10-05",
+    "Price": 16.0
+  },
+  {
+    "Barcode_No": "373457041580",
+    "Medicine_ID": "014",
+    "Name": "Omeprazole",
+    "Generic_Name": "Omeprazole",
+    "Brand_Name": "Prilosec",
+    "Form": "Capsule",
+    "Strength": "20mg",
+    "Manufacturer": "AstraZeneca",
+    "Expiry_Date": "2025-03-25",
+    "Price": 19.0
+  },
+  {
+    "Barcode_No": "369315155011",
+    "Medicine_ID": "015",
+    "Name": "Hydrochlorothiazide",
+    "Generic_Name": "Hydrochlorothiazide",
+    "Brand_Name": "Microzide",
+    "Form": "Tablet",
+    "Strength": "25mg",
+    "Manufacturer": "Boehringer Ingelheim",
+    "Expiry_Date": "2026-04-15",
+    "Price": 12.5
+  },
+  {
+    "Barcode_No": "368071462197",
+    "Medicine_ID": "016",
+    "Name": "Alprazolam",
+    "Generic_Name": "Alprazolam",
+    "Brand_Name": "Xanax",
+    "Form": "Tablet",
+    "Strength": "1mg",
+    "Manufacturer": "Pfizer",
+    "Expiry_Date": "2024-05-10",
+    "Price": 21.0
+  },
+  {
+    "Barcode_No": "362135768430",
+    "Medicine_ID": "017",
+    "Name": "Diazepam",
+    "Generic_Name": "Diazepam",
+    "Brand_Name": "Valium",
+    "Form": "Tablet",
+    "Strength": "10mg",
+    "Manufacturer": "Roche",
+    "Expiry_Date": "2025-07-22",
+    "Price": 23.0
+  },
+  {
+    "Barcode_No": "300544741255",
+    "Medicine_ID": "018",
+    "Name": "Prednisone",
+    "Generic_Name": "Prednisone",
+    "Brand_Name": "Deltasone",
+    "Form": "Tablet",
+    "Strength": "10mg",
+    "Manufacturer": "Pfizer",
+    "Expiry_Date": "2024-10-30",
+    "Price": 26.0
+  },
+  {
+    "Barcode_No": "370436019823",
+    "Medicine_ID": "019",
+    "Name": "Azithromycin",
+    "Generic_Name": "Azithromycin",
+    "Brand_Name": "Zithromax",
+    "Form": "Tablet",
+    "Strength": "250mg",
+    "Manufacturer": "Pfizer",
+    "Expiry_Date": "2025-08-20",
+    "Price": 28.0
+  },
+  {
+    "Barcode_No": "353746831538",
+    "Medicine_ID": "020",
+    "Name": "Ciprofloxacin",
+    "Generic_Name": "Ciprofloxacin",
+    "Brand_Name": "Cipro",
+    "Form": "Tablet",
+    "Strength": "500mg",
+    "Manufacturer": "Bayer",
+    "Expiry_Date": "2024-11-05",
+    "Price": 30.0
+  },
+  {
+    "Barcode_No": "342783635049",
+    "Medicine_ID": "021",
+    "Name": "Doxycycline",
+    "Generic_Name": "Doxycycline",
+    "Brand_Name": "Vibramycin",
+    "Form": "Capsule",
+    "Strength": "100mg",
+    "Manufacturer": "Pfizer",
+    "Expiry_Date": "2026-02-18",
+    "Price": 25.0
+  },
+  {
+    "Barcode_No": "363323280413",
+    "Medicine_ID": "022",
+    "Name": "Furosemide",
+    "Generic_Name": "Furosemide",
+    "Brand_Name": "Lasix",
+    "Form": "Tablet",
+    "Strength": "40mg",
+    "Manufacturer": "Bristol-Myers Squibb",
+    "Expiry_Date": "2024-12-15",
+    "Price": 11.0
+  },
+  {
+    "Barcode_No": "305274956320",
+    "Medicine_ID": "023",
+    "Name": "Levothyroxine",
+    "Generic_Name": "Levothyroxine",
+    "Brand_Name": "Synthroid",
+    "Form": "Tablet",
+    "Strength": "100mcg",
+    "Manufacturer": "AbbVie",
+    "Expiry_Date": "2025-09-01",
+    "Price": 20.0
+  },
+  {
+    "Barcode_No": "350383705307",
+    "Medicine_ID": "024",
+    "Name": "Lorazepam",
+    "Generic_Name": "Lorazepam",
+    "Brand_Name": "Ativan",
+    "Form": "Tablet",
+    "Strength": "1mg",
+    "Manufacturer": "Pfizer",
+    "Expiry_Date": "2024-06-30",
+    "Price": 22.0
+  },
+  {
+    "Barcode_No": "316729136006",
+    "Medicine_ID": "025",
+    "Name": "Clonazepam",
+    "Generic_Name": "Clonazepam",
+    "Brand_Name": "Klonopin",
+    "Form": "Tablet",
+    "Strength": "0.5mg",
+    "Manufacturer": "Roche",
+    "Expiry_Date": "2025-01-15",
+    "Price": 24.0
+  },
+  {
+    "Barcode_No": "359651063309",
+    "Medicine_ID": "026",
+    "Name": "Tamsulosin",
+    "Generic_Name": "Tamsulosin",
+    "Brand_Name": "Flomax",
+    "Form": "Capsule",
+    "Strength": "0.4mg",
+    "Manufacturer": "Boeringher Ingelheim",
+    "Expiry_Date": "2024-07-01",
+    "Price": 27.0
+  },
+
+  [
+    {
+      "Medicine_ID": "001",
+      "Name": "Vitamin D",
+      "Generic_Name": "Vitamin D",
+      "Brand_Name": "Drisdol, Calciferol",
+      "Form": "Capsule",
+      "Strength": "400 IU",
+      "Manufacturer": "Various",
+      "Expiry_Date": "",
+      "Price": "",
+      "Barcode_No": ""
+    },
+    {
+      "Medicine_ID": "002",
+      "Name": "Amoxicillin",
+      "Generic_Name": "Amoxicillin",
+      "Brand_Name": "Amoxil, Biomox, Polymox",
+      "Form": "Tablet",
+      "Strength": "500mg",
+      "Manufacturer": "Various",
+      "Expiry_Date": "",
+      "Price": "",
+      "Barcode_No": ""
+    },
+    {
+      "Medicine_ID": "003",
+      "Name": "Levothyroxine",
+      "Generic_Name": "Levothyroxine",
+      "Brand_Name": "Synthroid, Euthyrox, Levoxyl, Unithroid",
+      "Form": "Tablet",
+      "Strength": "100mcg",
+      "Manufacturer": "Various",
+      "Expiry_Date": "",
+      "Price": "",
+      "Barcode_No": ""
+    },
+    {
+      "Medicine_ID": "004",
+      "Name": "Lisinopril",
+      "Generic_Name": "Lisinopril",
+      "Brand_Name": "Prinivil, Zestril",
+      "Form": "Tablet",
+      "Strength": "10mg",
+      "Manufacturer": "Various",
+      "Expiry_Date": "",
+      "Price": "",
+      "Barcode_No": ""
+    },
+    {
+      "Medicine_ID": "005",
+      "Name": "Ibuprofen",
+      "Generic_Name": "Ibuprofen",
+      "Brand_Name": "Advil, Motrin",
+      "Form": "Tablet",
+      "Strength": "200mg",
+      "Manufacturer": "Various",
+      "Expiry_Date": "",
+      "Price": "",
+      "Barcode_No": ""
+    }
+  ]
+]
