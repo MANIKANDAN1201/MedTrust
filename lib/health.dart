@@ -378,27 +378,12 @@ class _HealthVitalsScreenState extends State<HealthVitalsScreens> {
             children: <Widget>[
               _buildNavItem(Icons.home, 'Home', 0),
               _buildNavItem(Icons.notifications, 'Notifications', 1),
-              const SizedBox(
-                  width: 30), // Reduced gap for the floating action button
+              // Reduced gap for the floating action button
               _buildNavItem(Icons.report, 'Report', 2),
               _buildNavItem(Icons.person, 'Profile', 3),
             ],
           ),
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF17395E),
-        onPressed: () {
-          // Add your onPressed code here!
-        },
-        tooltip: 'Increment',
-        child: Icon(
-          Icons.qr_code,
-          color: Colors.white, // Sets the icon color to white
-        ),
-        elevation: 2.0,
-        shape: CircleBorder(), // Ensures the button is perfectly round
       ),
     );
   }
