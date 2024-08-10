@@ -1,17 +1,18 @@
-import 'home_screen.dart';
+import 'package:fakemedicine/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'health_vitals_screen.dart';
+import 'bottom_navigation.dart';
 import 'notifications.dart';
 import 'profile_screen.dart';
 import 'report_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Healthing());
 }
 
-class MyApp extends StatelessWidget {
+class Healthing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -377,27 +378,12 @@ class _HealthVitalsScreenState extends State<HealthVitalsScreens> {
             children: <Widget>[
               _buildNavItem(Icons.home, 'Home', 0),
               _buildNavItem(Icons.notifications, 'Notifications', 1),
-              const SizedBox(
-                  width: 30), // Reduced gap for the floating action button
+              // Reduced gap for the floating action button
               _buildNavItem(Icons.report, 'Report', 2),
               _buildNavItem(Icons.person, 'Profile', 3),
             ],
           ),
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF17395E),
-        onPressed: () {
-          // Add your onPressed code here!
-        },
-        tooltip: 'Increment',
-        child: Icon(
-          Icons.qr_code,
-          color: Colors.white, // Sets the icon color to white
-        ),
-        elevation: 2.0,
-        shape: CircleBorder(), // Ensures the button is perfectly round
       ),
     );
   }
@@ -486,7 +472,7 @@ class _HealthVitalsScreenState extends State<HealthVitalsScreens> {
             return HomeScreen(); // Return HomeScreen for index 0
           case 1:
             return NotificationsScreen(
-              message: 'Your notification message here',
+              message: 'displayed',
             ); // Return NotificationsScreen for index 1
           case 2:
             return ReportScreen(); // Return ReportScreen for index 2

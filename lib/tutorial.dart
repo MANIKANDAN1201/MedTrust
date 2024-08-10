@@ -1,3 +1,5 @@
+import 'barcode_scanner_screen.dart';
+import 'basic_procedure.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -42,24 +44,38 @@ class _TutorialState extends State<Tutorial> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(
-                context); // This will navigate back to the previous screen
+            Navigator.pop(context); // Navigate back to the previous screen
           },
         ),
       ),
-      body: Center(
-        child: _controller.value.isInitialized
-            ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  AspectRatio(
-                    aspectRatio: _controller.value.aspectRatio,
-                    child: VideoPlayer(_controller),
-                  ),
-                  VideoControls(controller: _controller),
-                ],
-              )
-            : CircularProgressIndicator(),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0), // Add padding around the body
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              'Learn How to Use Our App',
+              style: TextStyle(
+                fontSize: 24, // Heading font size
+                fontWeight: FontWeight.bold, // Bold text
+                color: Colors.black, // Text color
+              ),
+              textAlign: TextAlign.center, // Center align text
+            ),
+            SizedBox(height: 10), // Space between heading and video
+            Container(
+              width: 370, // Adjust the width
+              height: 250, // Adjust the height
+              child: AspectRatio(
+                aspectRatio: _controller.value.aspectRatio,
+                child: VideoPlayer(_controller),
+              ),
+            ),
+            SizedBox(height: 10),
+            VideoControls(controller: _controller),
+            // Add more content below
+          ],
+        ),
       ),
     );
   }
@@ -114,6 +130,7 @@ class _VideoControlsState extends State<VideoControls> {
             ),
           ],
         ),
+        SizedBox(height: 5), // Reduced space between controls
         Slider(
           value: _isDragging
               ? _controller.value.position.inSeconds.toDouble()
@@ -131,6 +148,8 @@ class _VideoControlsState extends State<VideoControls> {
               _isDragging = false;
             });
           },
+          activeColor: Colors.blue, // Slider color
+          inactiveColor: Colors.grey, // Slider color
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -156,6 +175,35 @@ class _VideoControlsState extends State<VideoControls> {
               },
             ),
           ],
+        ),
+        SizedBox(height: 20),
+        Text(
+          'Some Additional Necessities',
+          style: TextStyle(
+            fontSize: 18, // Text font size
+            fontWeight: FontWeight.bold, // Bold text
+            color: Colors.black, // Text color
+          ),
+          textAlign: TextAlign.center, // Center align text
+        ),
+        SizedBox(height: 10), // Space between text and image
+        InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => BasicProcedures(),
+              ),
+            );
+          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image.asset(
+              'assets/procedure.png',
+              fit: BoxFit.contain,
+              height: 190,
+            ),
+          ),
         ),
       ],
     );

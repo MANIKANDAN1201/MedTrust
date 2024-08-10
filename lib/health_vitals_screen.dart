@@ -1,12 +1,12 @@
+import 'main.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-// Import the screens that you will navigate to
-import 'home_screen.dart';
+import 'bottom_navigation.dart';
 import 'notifications.dart';
 import 'report_screen.dart';
 import 'profile_screen.dart';
-import 'health.dart'; // Import the HealthVitalsScreens page
+import 'home_screen.dart';
+import 'common.dart'; // Assuming this is the correct path
+import 'health.dart'; // Assuming this is the correct path
 
 class HealthVitalsScreen extends StatefulWidget {
   @override
@@ -27,10 +27,10 @@ class _HealthVitalsScreenState extends State<HealthVitalsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF17395E),
+        backgroundColor: Color(0xFF17395E), // Background color of the AppBar
         title: Text(
           'Health Vitals',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white), // Text color set to white
         ),
         centerTitle: true,
       ),
@@ -101,28 +101,18 @@ class _HealthVitalsScreenState extends State<HealthVitalsScreen> {
                   keyboardType: TextInputType.text,
                 ),
                 SizedBox(height: 20),
-                // Image Cards
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _buildImageCard('assets/images/gopal.png', () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HealthVitalsScreens(),
-                        ),
-                      );
-                    }),
-                    _buildImageCard('assets/images/image1.png', () {
-                      // Handle tap on the second image if needed
-                    }),
+                    _buildImageButton('assets/images/gopal.png', Healthing()),
+                    _buildImageButton('assets/common.png', CommonDis()),
                   ],
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState?.validate() ?? false) {
-                      saveHealthDetails();
+                      // Save action
                     }
                   },
                   child: Text('Save'),
@@ -140,36 +130,21 @@ class _HealthVitalsScreenState extends State<HealthVitalsScreen> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Color(0xFF17395E),
+        color: Color(0xFF17395E), // Set BottomAppBar color to #17395E
         shape: CircularNotchedRectangle(),
         notchMargin: 8.0,
         child: Container(
-          height: 45.0,
+          height: 45.0, // Reduced height
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               _buildNavItem(Icons.home, 'Home', 0),
               _buildNavItem(Icons.notifications, 'Notifications', 1),
-              const SizedBox(width: 30),
               _buildNavItem(Icons.report, 'Report', 2),
               _buildNavItem(Icons.person, 'Profile', 3),
             ],
           ),
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF17395E),
-        onPressed: () {
-          // Add your onPressed code here!
-        },
-        tooltip: 'Increment',
-        child: Icon(
-          Icons.qr_code,
-          color: Colors.white,
-        ),
-        elevation: 2.0,
-        shape: CircleBorder(),
       ),
     );
   }
@@ -214,23 +189,22 @@ class _HealthVitalsScreenState extends State<HealthVitalsScreen> {
     );
   }
 
-  Widget _buildImageCard(String imagePath, VoidCallback onTap) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Card(
-        elevation: 5,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Container(
-          width: 150,
-          height: 150,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              image: AssetImage(imagePath),
-              fit: BoxFit.cover,
-            ),
+  Widget _buildImageButton(String imagePath, Widget destination) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => destination),
+        );
+      },
+      child: Container(
+        width: 150,
+        height: 150,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+            image: AssetImage(imagePath),
+            fit: BoxFit.cover,
           ),
         ),
       ),
@@ -267,40 +241,19 @@ class _HealthVitalsScreenState extends State<HealthVitalsScreen> {
       MaterialPageRoute(builder: (context) {
         switch (index) {
           case 0:
-            return HomeScreen();
+            return HomeScreen(); // Return HomeScreen for index 0
           case 1:
             return NotificationsScreen(
-              message: 'Your notification message here',
-            );
+              message: 'displayed',
+            ); // Return NotificationsScreen for index 1
           case 2:
-            return ReportScreen();
+            return ReportScreen(); // Return ReportScreen for index 2
           case 3:
-            return ProfileScreen();
+            return ProfileScreen(); // Return ProfileScreen for index 3
           default:
             return HomeScreen(); // Default to HomeScreen if index is unknown
         }
       }),
     );
-  }
-
-  Future<void> saveHealthDetails() async {
-    final userHealthData = {
-      'age': _ageController.text,
-      'height': _heightController.text,
-      'weight': _weightController.text,
-      'bloodType': _bloodTypeController.text,
-      'gender': _selectedGender,
-    };
-
-    try {
-      await FirebaseFirestore.instance
-          .collection('health_vitals')
-          .add(userHealthData);
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Health data saved successfully!')));
-    } catch (e) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Failed to save data: $e')));
-    }
   }
 }
