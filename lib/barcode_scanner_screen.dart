@@ -4,7 +4,6 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
 import 'scan_result_screen.dart'; // Import the result screen
 
 class BarcodeScannerScreen extends StatefulWidget {
@@ -86,44 +85,55 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
       // On exception, also check the JSON files
       await _checkMedicineInJson(barcode);
     } finally {
+      // Add web scraping as an additional check
+      await _checkWithWebScraping(barcode);
+      await _saveNotification();
       _navigateToResultScreen();
+    }
+  }
+
+  Future<void> _checkWithWebScraping(String barcode) async {
+    try {
+      final url =
+          'http://192.168.137.192:8000/check_barcode'; // Replace with your local machine's IP address and port
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'barcode': barcode}),
+      );
+
+      print('Web scraping response status: ${response.statusCode}');
+      print('Web scraping response body: ${response.body}');
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        setState(() {
+          if (data['isFake']) {
+            _isFake = true;
+            _scanResult = "Medicine not found. It might be fake.";
+          }
+        });
+      } else {
+        setState(() {
+          _scanResult = "Failed to verify medicine with web scraping.";
+          _isFake = true;
+        });
+      }
+    } catch (e) {
+      setState(() {
+        _scanResult = 'Error during web scraping: $e';
+        _isFake = true;
+      });
     }
   }
 
   Future<void> _checkMedicineInJson(String barcode) async {
     bool found = false;
 
-    // Check in 'medicines.json'
-    try {
-      final String jsonString =
-          await rootBundle.loadString('assets/medicines.json');
-      final List<dynamic> jsonData = jsonDecode(jsonString);
-
-      for (var item in jsonData) {
-        if (item['Barcode_No'] == barcode) {
-          setState(() {
-            _medicineName = item['Name'] ?? "Unknown";
-            _manufacturerName = item['Manufacturer'] ?? "Unknown";
-            _expiryDate = item['Expiry_Date'] ?? "Not Available";
-            _isFake = false;
-            _scanResult = "This medicine is genuine.";
-          });
-          found = true;
-          break;
-        }
-      }
-    } catch (e) {
-      setState(() {
-        _scanResult = 'Error reading medicines.json: $e';
-        _isFake = true;
-      });
-    }
-
-    if (!found) {
-      // Check in 'Medicines_info.json'
+    // Helper function to check JSON data
+    Future<bool> _checkJsonFile(String path) async {
       try {
-        final String jsonString =
-            await rootBundle.loadString('assets/Medicines_info.json');
+        final String jsonString = await rootBundle.loadString(path);
         final List<dynamic> jsonData = jsonDecode(jsonString);
 
         for (var item in jsonData) {
@@ -135,23 +145,45 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
               _isFake = false;
               _scanResult = "This medicine is genuine.";
             });
-            found = true;
-            break;
+            return true;
           }
         }
       } catch (e) {
         setState(() {
-          _scanResult = 'Error reading Medicines_info.json: $e';
-          _isFake = true;
+          _scanResult = 'Error reading $path: $e';
         });
       }
+      return false;
+    }
 
-      if (!found) {
-        setState(() {
-          _scanResult = "Medicine not found. It might be fake.";
-          _isFake = true;
-        });
-      }
+    // Check in 'medicines.json'
+    found = await _checkJsonFile('assets/medicines.json');
+
+    if (!found) {
+      // Check in 'Medicines_info.json' if not found in 'medicines.json'
+      found = await _checkJsonFile('assets/Medicines_info.json');
+    }
+
+    if (!found) {
+      setState(() {
+        _scanResult = "Medicine not found. It might be fake.";
+        _isFake = true;
+      });
+    }
+  }
+
+  Future<void> _saveNotification() async {
+    final message = _isFake == true
+        ? 'You scanned a medicine and it was fake.'
+        : 'You scanned a medicine and it was real.';
+
+    try {
+      await FirebaseFirestore.instance.collection('Notifications').add({
+        'message': message,
+        'timestamp': Timestamp.now(),
+      });
+    } catch (e) {
+      print('Failed to save notification: $e');
     }
   }
 

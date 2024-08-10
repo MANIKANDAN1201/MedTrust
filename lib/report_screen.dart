@@ -171,6 +171,10 @@ class _ReportScreenState extends State<ReportScreen> {
 
         await _createAndSendPdf(reportRef.id);
 
+        // Save notification data
+        await _saveNotification(
+            'Report submitted on ${DateTime.now()} and email is sent, check inbox.');
+
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Report submitted and emailed successfully!')),
         );
@@ -184,6 +188,18 @@ class _ReportScreenState extends State<ReportScreen> {
           SnackBar(content: Text('Failed to submit report: $e')),
         );
       }
+    }
+  }
+
+  Future<void> _saveNotification(String message) async {
+    try {
+      // Save the notification to Firestore
+      await FirebaseFirestore.instance.collection('Notifications').add({
+        'message': message,
+        'timestamp': Timestamp.now(),
+      });
+    } catch (e) {
+      print('Failed to save notification: $e');
     }
   }
 

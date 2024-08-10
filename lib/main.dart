@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:connectivity_plus/connectivity_plus.dart'; // Import connectivity_plus
 import 'auth_screen.dart';
 import 'home_screen.dart';
-import 'notification_service.dart';
+import 'offline_mode_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  await NotificationService.initialize();
   runApp(MyApp());
 }
 
@@ -20,11 +20,46 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: AuthStateHandler(),
+      home: ConnectivityChecker(), // Use ConnectivityChecker as the home widget
       routes: {
         '/auth': (context) => AuthScreen(),
         '/home': (context) => HomeScreen(),
+        '/offline': (context) => OfflineModeScreen(),
       },
+    );
+  }
+}
+
+class ConnectivityChecker extends StatefulWidget {
+  @override
+  _ConnectivityCheckerState createState() => _ConnectivityCheckerState();
+}
+
+class _ConnectivityCheckerState extends State<ConnectivityChecker> {
+  @override
+  void initState() {
+    super.initState();
+    _checkConnectivity();
+  }
+
+  Future<void> _checkConnectivity() async {
+    print("Checking connectivity...");
+    var connectivityResult = await Connectivity().checkConnectivity();
+    if (connectivityResult == ConnectivityResult.none) {
+      print("No internet connection, navigating to OfflineModeScreen.");
+      Navigator.of(context).pushReplacementNamed('/offline');
+    } else {
+      print("Internet connection available, navigating to AuthStateHandler.");
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => AuthStateHandler(),
+      ));
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child: CircularProgressIndicator()),
     );
   }
 }

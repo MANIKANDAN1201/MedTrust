@@ -9,10 +9,10 @@ import 'profile_screen.dart';
 import 'report_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Healthing());
 }
 
-class MyApp extends StatelessWidget {
+class Healthing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -486,7 +486,9 @@ class _HealthVitalsScreenState extends State<HealthVitalsScreens> {
           case 0:
             return HomeScreen(); // Return HomeScreen for index 0
           case 1:
-            return NotificationsScreen(); // Return NotificationsScreen for index 1
+            return NotificationsScreen(
+              message: 'displayed',
+            ); // Return NotificationsScreen for index 1
           case 2:
             return ReportScreen(); // Return ReportScreen for index 2
           case 3:

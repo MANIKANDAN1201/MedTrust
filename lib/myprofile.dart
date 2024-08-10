@@ -1,3 +1,7 @@
+import 'package:fakemedicine/notification_manager.dart';
+import 'package:fakemedicine/notifications.dart';
+import 'package:fakemedicine/preferences_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -46,7 +50,16 @@ class _ProfileScreenState extends State<MyProfileScreen> {
           _profileImageUrl = data?['profileImage'];
           _isLoading = false;
         });
+
+        // Check if any profile fields are missing
+        bool needsFilling = _nameController.text.isEmpty ||
+            _phoneController.text.isEmpty ||
+            _addressController.text.isEmpty ||
+            _emailController.text.isEmpty;
+        await PreferencesService.setProfileNeedsFilling(needsFilling);
       } else {
+        // User profile does not exist
+        await PreferencesService.setProfileNeedsFilling(true);
         setState(() {
           _isLoading = false;
         });
@@ -131,10 +144,41 @@ class _ProfileScreenState extends State<MyProfileScreen> {
           ),
           actions: [
             TextButton(
-              onPressed: () async {
-                await _saveUserProfile();
-                Navigator.of(context).pop();
-                setState(() {}); // To refresh the screen with updated values
+              onPressed: () {
+                bool hasEmptyField = false;
+                String notificationMessage = '';
+
+                if (_nameController.text.isEmpty) {
+                  hasEmptyField = true;
+                  notificationMessage += 'Name field is required.\n';
+                }
+                if (_phoneController.text.isEmpty) {
+                  hasEmptyField = true;
+                  notificationMessage += 'Phone field is required.\n';
+                }
+                if (_addressController.text.isEmpty) {
+                  hasEmptyField = true;
+                  notificationMessage += 'Address field is required.\n';
+                }
+                if (_emailController.text.isEmpty) {
+                  hasEmptyField = true;
+                  notificationMessage += 'Email field is required.\n';
+                }
+
+                if (hasEmptyField) {
+                  Navigator.of(context).pop(); // Close the dialog
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => NotificationsScreen(
+                        message: notificationMessage.trim(),
+                      ),
+                    ),
+                  );
+                } else {
+                  _saveUserProfile();
+                  Navigator.of(context).pop(); // Close the dialog
+                  setState(() {});
+                }
               },
               child: const Text('Save'),
             ),

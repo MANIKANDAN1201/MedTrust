@@ -30,7 +30,7 @@ dependencies:
   video_player: ^2.9.1
   flutter_local_notifications: ^17.2.2
   firebase_messaging: ^14.9.4
-
+  connectivity_plus: ^6.0.5
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -44,15 +44,26 @@ flutter:
     - assets/vitals.png
     - assets/scan.png
     - assets/medicines.json
-    - assets/Medicines_info.json
     - assets/images/gopal.png
     - assets/images/image1.png
-    - assets/image.png
+    - assets/imager.png
     - assets/image2.png
     - assets/top.png
     - assets/tick.json
     - assets/no.json
+    - assets/videos.mp4
     - assets/FAKE.mp4
+    - assets/logos.png
+    - assets/imaging.png
+    - assets/scanercode.mp4
+    - assets/offline_.mp4
+    - assets/procedure.png
+    - assets/cpr.webp
+    - assets/bandage.webp
+    - assets/burn.png
+    - assets/choke.webp
+    - assets/seizures.jpg
+    - assets/common.png
 
   fonts:
     - family: Urbanist

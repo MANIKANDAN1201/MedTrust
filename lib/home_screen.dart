@@ -1,7 +1,8 @@
+import 'package:fakemedicine/tutorial.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:video_player/video_player.dart'; // Import video_player package
-
+import 'package:video_player/video_player.dart';
+import 'tutorial.dart';
 import 'barcode_scanner_screen.dart';
 import 'notifications.dart';
 import 'report_screen.dart';
@@ -9,7 +10,8 @@ import 'profile_screen.dart';
 import 'medicine_details_page.dart';
 import 'health_vitals_screen.dart';
 import 'health.dart';
-import 'offline_mode_screen.dart'; // Import your OfflineModeScreen
+import 'offline_mode_screen.dart';
+import 'about_us.dart'; // Import your OfflineModeScreen
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -23,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   String _barcode = "";
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  late VideoPlayerController _videoController; // Video controller
+  late VideoPlayerController _videoController;
 
   @override
   void initState() {
@@ -31,15 +33,15 @@ class _HomeScreenState extends State<HomeScreen> {
     _videoController = VideoPlayerController.asset(
         'assets/FAKE.mp4') // Replace with your video path
       ..initialize().then((_) {
-        setState(() {}); // Ensure the first frame is shown
-        _videoController.setLooping(true); // Set video to loop
-        _videoController.play(); // Start playing the video
+        setState(() {});
+        _videoController.setLooping(true);
+        _videoController.play();
       });
   }
 
   @override
   void dispose() {
-    _videoController.dispose(); // Dispose of the controller when done
+    _videoController.dispose();
     super.dispose();
   }
 
@@ -61,13 +63,13 @@ class _HomeScreenState extends State<HomeScreen> {
           Icon(
             icon,
             color: isSelected ? Colors.white : Colors.black,
-            size: 24.0,
+            size: 20.0, // Enlarged icon size
           ),
           Text(
             label,
             style: TextStyle(
               color: isSelected ? Colors.white : Colors.black,
-              fontSize: 12.0,
+              fontSize: 10.0, // Enlarged text size
             ),
           ),
         ],
@@ -79,36 +81,25 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF17395E),
-        iconTheme: IconThemeData(color: Colors.white),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.medical_services,
-              size: 28,
-              color: Colors.white,
-            ),
-            SizedBox(width: 8),
-            Text(
-              'MEDTRUST',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 22,
-                color: Colors.white,
-              ),
-            ),
-          ],
+        backgroundColor: const Color(0xFF17395E),
+        iconTheme: const IconThemeData(color: Colors.white),
+        centerTitle: true, // Center the title in the AppBar
+        toolbarHeight: 80,
+
+        title: Image.asset(
+          'assets/logos.png',
+          fit: BoxFit.cover,
+          height: 320, // Adjust the size of the logo
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications, color: Colors.white),
+            icon: const Icon(Icons.notifications, color: Colors.white),
             onPressed: () {
               _onItemTapped(1);
             },
           ),
           IconButton(
-            icon: Icon(Icons.person, color: Colors.white),
+            icon: const Icon(Icons.person, color: Colors.white),
             onPressed: () {
               _onItemTapped(3);
             },
@@ -119,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
+            const DrawerHeader(
               decoration: BoxDecoration(
                 color: Color(0xFF17395E),
               ),
@@ -132,40 +123,44 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.home, color: Color(0xFF17395E)),
-              title: Text('Home'),
+              leading: const Icon(Icons.home, color: Color(0xFF17395E)),
+              title: const Text('Home'),
               onTap: () {
                 Navigator.pop(context);
                 _onItemTapped(0);
               },
             ),
             ListTile(
-              leading: Icon(Icons.notifications, color: Color(0xFF17395E)),
-              title: Text('Notifications'),
+              leading: const Icon(Icons.info, color: Color(0xFF17395E)),
+              title: const Text('About us'),
               onTap: () {
-                Navigator.pop(context);
-                _onItemTapped(1);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AboutUs(),
+                  ),
+                );
               },
             ),
             ListTile(
-              leading: Icon(Icons.report, color: Color(0xFF17395E)),
-              title: Text('Report'),
+              leading: const Icon(Icons.report, color: Color(0xFF17395E)),
+              title: const Text('Report'),
               onTap: () {
                 Navigator.pop(context);
                 _onItemTapped(2);
               },
             ),
             ListTile(
-              leading: Icon(Icons.person, color: Color(0xFF17395E)),
-              title: Text('Account'),
+              leading: const Icon(Icons.person, color: Color(0xFF17395E)),
+              title: const Text('Account'),
               onTap: () {
                 Navigator.pop(context);
                 _onItemTapped(3);
               },
             ),
             ListTile(
-              leading: Icon(Icons.logout, color: Color(0xFF17395E)),
-              title: Text('Logout'),
+              leading: const Icon(Icons.logout, color: Color(0xFF17395E)),
+              title: const Text('Logout'),
               onTap: () async {
                 await FirebaseAuth.instance.signOut();
                 Navigator.pushReplacementNamed(context, '/auth');
@@ -175,14 +170,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
               Color(0xFFF3F3F3),
-              Color(0xFFDFE0FF)
-            ], // Updated gradient colors
+              Color(0xFFDFE0FF),
+            ],
           ),
         ),
         child: PageView(
@@ -199,7 +194,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      prefixIcon: Icon(Icons.search),
+                      prefixIcon: const Icon(Icons.search),
                     ),
                     onSubmitted: (value) {
                       if (value.isNotEmpty) {
@@ -213,7 +208,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       }
                     },
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
 
                   // Video Player Placeholder
                   _videoController.value.isInitialized
@@ -238,12 +233,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       : Container(
                           height: 200,
                           color: Colors.black12,
-                          child: Center(
+                          child: const Center(
                             child: CircularProgressIndicator(),
                           ),
                         ),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   InkWell(
                     onTap: () {
@@ -264,7 +259,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -282,7 +277,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(15),
                             child: Image.asset(
-                              'assets/image.png',
+                              'assets/imager.png',
                               fit: BoxFit.cover,
                               height: 150,
                               width: double.infinity,
@@ -290,7 +285,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: GestureDetector(
                           onTap: () {
@@ -315,7 +310,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   // "Go Offline" Button in a Card
                   Card(
@@ -327,7 +322,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.all(16.0),
                       child: Column(
                         children: [
-                          Text(
+                          const Text(
                             'Offline Mode',
                             style: TextStyle(
                               fontSize: 18,
@@ -335,8 +330,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: Color(0xFF17395E),
                             ),
                           ),
-                          SizedBox(height: 8),
-                          Text(
+                          const SizedBox(height: 8),
+                          const Text(
                             'Limited fake drug detection is available in offline mode. You can still scan medicines, but functionality will be limited.',
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -344,7 +339,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: Colors.black87,
                             ),
                           ),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           ElevatedButton(
                             onPressed: () {
                               Navigator.push(
@@ -356,58 +351,66 @@ class _HomeScreenState extends State<HomeScreen> {
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor:
-                                  Color(0xFF17395E), // Updated property
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 40, vertical: 12),
+                                  const Color(0xFF17395E), // Background color
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
+                                borderRadius: BorderRadius.circular(20),
                               ),
                             ),
-                            child: Text(
-                              'Go Offline',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                              ),
-                            ),
+                            child: const Text('Go Offline'),
                           ),
                         ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Tutorial(),
+                        ),
+                      );
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        'assets/imaging.png',
+                        fit: BoxFit.contain,
+                        height: 200,
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-            NotificationsScreen(),
+            NotificationsScreen(
+              message: 'text displayed',
+            ),
             ReportScreen(),
             ProfileScreen(),
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color(0xFF17395E), // Set background color to FF17395E
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+      bottomNavigationBar: BottomAppBar(
+        color: const Color(0xFF1B3254), // Background color of bottom navbar
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 4.0,
+        child: Container(
+          height: 30.0, // Set the desired height here
+          padding: const EdgeInsets.symmetric(
+              horizontal: 5.0), // Reduced horizontal padding
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              _buildNavItem(Icons.home, 'Home', 0),
+              _buildNavItem(Icons.notifications, 'Notifications', 1),
+              _buildNavItem(Icons.report, 'Report', 2),
+              _buildNavItem(Icons.person, 'Profile', 3),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notifications',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.report),
-            label: 'Report',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Account',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Color.fromARGB(255, 255, 255, 255),
-        unselectedItemColor: Colors.black,
-        onTap: _onItemTapped,
+        ),
       ),
     );
   }
