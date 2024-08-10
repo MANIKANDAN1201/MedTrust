@@ -4,7 +4,6 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
 import 'scan_result_screen.dart'; // Import the result screen
 
 class BarcodeScannerScreen extends StatefulWidget {
@@ -86,7 +85,45 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
       // On exception, also check the JSON files
       await _checkMedicineInJson(barcode);
     } finally {
+      // Add web scraping as an additional check
+      await _checkWithWebScraping(barcode);
+      await _saveNotification();
       _navigateToResultScreen();
+    }
+  }
+
+  Future<void> _checkWithWebScraping(String barcode) async {
+    try {
+      final url =
+          'http://192.168.137.192:8000/check_barcode'; // Replace with your local machine's IP address and port
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'barcode': barcode}),
+      );
+
+      print('Web scraping response status: ${response.statusCode}');
+      print('Web scraping response body: ${response.body}');
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        setState(() {
+          if (data['isFake']) {
+            _isFake = true;
+            _scanResult = "Medicine not found. It might be fake.";
+          }
+        });
+      } else {
+        setState(() {
+          _scanResult = "Failed to verify medicine with web scraping.";
+          _isFake = true;
+        });
+      }
+    } catch (e) {
+      setState(() {
+        _scanResult = 'Error during web scraping: $e';
+        _isFake = true;
+      });
     }
   }
 
@@ -132,6 +169,21 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
         _scanResult = "Medicine not found. It might be fake.";
         _isFake = true;
       });
+    }
+  }
+
+  Future<void> _saveNotification() async {
+    final message = _isFake == true
+        ? 'You scanned a medicine and it was fake.'
+        : 'You scanned a medicine and it was real.';
+
+    try {
+      await FirebaseFirestore.instance.collection('Notifications').add({
+        'message': message,
+        'timestamp': Timestamp.now(),
+      });
+    } catch (e) {
+      print('Failed to save notification: $e');
     }
   }
 
