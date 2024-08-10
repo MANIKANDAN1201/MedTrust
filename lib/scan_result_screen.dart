@@ -125,23 +125,6 @@ class ScanResultScreen extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                        SizedBox(height: 16),
-                        Text(
-                          'Expiry Date:',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[800],
-                          ),
-                        ),
-                        SizedBox(height: 5),
-                        Text(
-                          expiryDate,
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                          ),
-                        ),
                       ],
                     ),
                   ),
