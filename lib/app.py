@@ -31,4 +31,4 @@ def check_barcode():
     return jsonify({"isFake": is_fake})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=True)  # Change port to 8000
+    app.run(host='0.0.0.0', port=8000, debug=True)
