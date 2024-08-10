@@ -1,4 +1,4 @@
-import 'package:fakemedicine/home_screen.dart';
+import 'home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';

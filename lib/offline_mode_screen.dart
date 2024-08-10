@@ -1,4 +1,4 @@
-import 'package:fakemedicine/offline_scanner.dart';
+import 'offline_scanner.dart';
 import 'package:flutter/material.dart';
 
 class OfflineModeScreen extends StatelessWidget {

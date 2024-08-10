@@ -1,6 +1,6 @@
-import 'package:fakemedicine/notification_manager.dart';
-import 'package:fakemedicine/notifications.dart';
-import 'package:fakemedicine/preferences_service.dart';
+import 'notification_manager.dart';
+import 'notifications.dart';
+import 'preferences_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

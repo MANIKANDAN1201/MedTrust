@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 // Import the screens that you will navigate to
-import 'package:fakemedicine/home_screen.dart';
-import 'package:fakemedicine/notifications.dart';
-import 'package:fakemedicine/report_screen.dart';
-import 'package:fakemedicine/profile_screen.dart';
-import 'package:fakemedicine/health.dart'; // Import the HealthVitalsScreens page
+import 'home_screen.dart';
+import 'notifications.dart';
+import 'report_screen.dart';
+import 'profile_screen.dart';
+import 'health.dart'; // Import the HealthVitalsScreens page
 
 class HealthVitalsScreen extends StatefulWidget {
   @override
