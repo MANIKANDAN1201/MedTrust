@@ -347,30 +347,24 @@ class _HomePharmaScreenState extends State<HomePharmaScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        backgroundColor: const Color(0xFF17395E), // Set the background color
-        selectedItemColor: Colors.white, // Set the selected item color
-        unselectedItemColor: Colors.black, // Set the unselected item color
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+      bottomNavigationBar: BottomAppBar(
+        color: const Color(0xFF1B3254), // Background color of bottom navbar
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 4.0,
+        child: Container(
+          height: 30.0, // Set the desired height here
+          padding: const EdgeInsets.symmetric(
+              horizontal: 5.0), // Reduced horizontal padding
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              _buildNavItem(Icons.home, 'Home', 0),
+              _buildNavItem(Icons.notifications, 'Notifications', 1),
+              _buildNavItem(Icons.report, 'Report', 2),
+              _buildNavItem(Icons.person, 'Profile', 3),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notifications',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.report),
-            label: 'Report',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
+        ),
       ),
     );
   }
