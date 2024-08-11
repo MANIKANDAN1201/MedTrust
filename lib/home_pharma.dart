@@ -1,31 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:video_player/video_player.dart';
-import 'tutorial.dart';
+import 'verification_card.dart';
 import 'barcode_scanner_screen.dart';
 import 'notifications.dart';
 import 'report_screen.dart';
 import 'profile_screen.dart';
 import 'medicine_details_page.dart';
 import 'health_vitals_screen.dart';
-import 'health.dart';
 import 'offline_mode_screen.dart';
-import 'about_us.dart'; // Import your OfflineModeScreen
-import 'search_pharma.dart'; // Import the SearchPharma page
 
-class HomeScreen extends StatefulWidget {
+class HomePharmaScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomePharmaScreenState createState() => _HomePharmaScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomePharmaScreenState extends State<HomePharmaScreen> {
   int _selectedIndex = 0;
   final PageController _pageController = PageController();
-  final TextEditingController _serialNumberController = TextEditingController();
-  String _barcode = "";
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   late VideoPlayerController _videoController;
+  late String _pharmacyId;
 
   @override
   void initState() {
@@ -37,6 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
         _videoController.setLooping(true);
         _videoController.play();
       });
+    _pharmacyId =
+        _auth.currentUser?.uid ?? ''; // Assuming the user is already logged in
   }
 
   @override
@@ -63,13 +62,13 @@ class _HomeScreenState extends State<HomeScreen> {
           Icon(
             icon,
             color: isSelected ? Colors.white : Colors.black,
-            size: 20.0, // Enlarged icon size
+            size: 30.0, // Enlarged icon size
           ),
           Text(
             label,
             style: TextStyle(
               color: isSelected ? Colors.white : Colors.black,
-              fontSize: 10.0, // Enlarged text size
+              fontSize: 14.0, // Enlarged text size
             ),
           ),
         ],
@@ -85,7 +84,6 @@ class _HomeScreenState extends State<HomeScreen> {
         iconTheme: const IconThemeData(color: Colors.white),
         centerTitle: true, // Center the title in the AppBar
         toolbarHeight: 80,
-
         title: Image.asset(
           'assets/logos.png',
           fit: BoxFit.cover,
@@ -128,18 +126,6 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () {
                 Navigator.pop(context);
                 _onItemTapped(0);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.info, color: Color(0xFF17395E)),
-              title: const Text('About us'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AboutUs(),
-                  ),
-                );
               },
             ),
             ListTile(
@@ -327,19 +313,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
-                              color: Color(0xFF17395E),
                             ),
                           ),
-                          const SizedBox(height: 8),
-                          const Text(
-                            'Limited fake drug detection is available in offline mode. You can still scan medicines, but functionality will be limited.',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black87,
-                            ),
-                          ),
-                          const SizedBox(height: 16),
+                          const SizedBox(height: 10),
                           ElevatedButton(
                             onPressed: () {
                               Navigator.push(
@@ -349,120 +325,52 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               );
                             },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color.fromARGB(
-                                  255, 255, 255, 255), // Background color
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                            ),
                             child: const Text('Go Offline'),
                           ),
                         ],
                       ),
                     ),
                   ),
+
                   const SizedBox(height: 20),
 
-                  // "Search Pharma" Button in a Card
-                  Card(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        children: [
-                          const Text(
-                            'Search Pharma',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF17395E),
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          const Text(
-                            'Find and verify pharmaceutical shops and medicines.',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black87,
-                            ),
-                          ),
-                          const SizedBox(height: 16),
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SearchPharmaScreen(),
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color.fromARGB(
-                                  255, 255, 255, 255), // Background color
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                            ),
-                            child: const Text('Search Pharma'),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Tutorial(),
-                        ),
-                      );
-                    },
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image.asset(
-                        'assets/imaging.png',
-                        fit: BoxFit.contain,
-                        height: 200,
-                      ),
-                    ),
-                  ),
+                  // Verification Card
+                  VerificationCard(pharmacyId: _pharmacyId),
                 ],
               ),
             ),
             NotificationsScreen(
-              message: 'text displayed',
+              message: 'Your notification message here',
             ),
             ReportScreen(),
             ProfileScreen(),
           ],
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: const Color(0xFF1B3254), // Background color of bottom navbar
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 4.0,
-        child: Container(
-          height: 30.0, // Set the desired height here
-          padding: const EdgeInsets.symmetric(
-              horizontal: 5.0), // Reduced horizontal padding
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              _buildNavItem(Icons.home, 'Home', 0),
-              _buildNavItem(Icons.notifications, 'Notifications', 1),
-              _buildNavItem(Icons.report, 'Report', 2),
-              _buildNavItem(Icons.person, 'Profile', 3),
-            ],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        backgroundColor: const Color(0xFF17395E), // Set the background color
+        selectedItemColor: Colors.white, // Set the selected item color
+        unselectedItemColor: Colors.black, // Set the unselected item color
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: 'Notifications',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.report),
+            label: 'Report',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
       ),
     );
   }

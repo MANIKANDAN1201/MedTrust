@@ -54,6 +54,7 @@ flutter:
     - assets/logos.png
     - assets/imager.png
     - assets/imaging.png
+    - assets/background.webp
 
   fonts:
     - family: Urbanist

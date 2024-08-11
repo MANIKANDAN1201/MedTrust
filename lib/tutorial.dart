@@ -1,5 +1,5 @@
-import 'package:fakemedicine/barcode_scanner_screen.dart';
-import 'package:fakemedicine/basic_procedure.dart';
+import 'barcode_scanner_screen.dart';
+import 'basic_procedure.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
