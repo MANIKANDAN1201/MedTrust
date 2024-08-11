@@ -1,5 +1,5 @@
-import 'barcode_scanner_screen.dart';
-import 'basic_procedure.dart';
+import 'package:fakemedicine/barcode_scanner_screen.dart';
+import 'package:fakemedicine/basic_procedure.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -19,6 +19,8 @@ class _TutorialState extends State<Tutorial> {
     _controller = VideoPlayerController.asset('assets/FAKE.mp4')
       ..initialize().then((_) {
         setState(() {});
+        _controller.setLooping(true);
+        _controller.play();
       });
 
     _controller.addListener(() {
@@ -47,33 +49,81 @@ class _TutorialState extends State<Tutorial> {
             Navigator.pop(context); // Navigate back to the previous screen
           },
         ),
+        backgroundColor: const Color(0xFF17395E),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0), // Add padding around the body
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0), // Add padding around the body
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               'Learn How to Use Our App',
               style: TextStyle(
                 fontSize: 24, // Heading font size
                 fontWeight: FontWeight.bold, // Bold text
-                color: Colors.black, // Text color
+                color: const Color(0xFF17395E), // Text color
               ),
               textAlign: TextAlign.center, // Center align text
             ),
-            SizedBox(height: 10), // Space between heading and video
+            const SizedBox(height: 20), // Space between heading and video
             Container(
-              width: 370, // Adjust the width
-              height: 250, // Adjust the height
-              child: AspectRatio(
-                aspectRatio: _controller.value.aspectRatio,
-                child: VideoPlayer(_controller),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20), // Curved corners
+                border: Border.all(
+                  color: Colors.lightBlue, // Light blue border
+                  width: 2, // Border width
+                ),
+              ),
+              width: double.infinity,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(
+                    20), // Ensure video has curved corners
+                child: _controller.value.isInitialized
+                    ? AspectRatio(
+                        aspectRatio: _controller.value.aspectRatio,
+                        child: VideoPlayer(_controller),
+                      )
+                    : Container(
+                        height: 250,
+                        color: Colors.black12,
+                        child: const Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      ),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             VideoControls(controller: _controller),
-            // Add more content below
+            const SizedBox(
+                height: 20), // Space between video and additional content
+            Text(
+              'Some Additional Necessities',
+              style: TextStyle(
+                fontSize: 18, // Text font size
+                fontWeight: FontWeight.bold, // Bold text
+                color: const Color(0xFF17395E), // Text color
+              ),
+              textAlign: TextAlign.center, // Center align text
+            ),
+            const SizedBox(height: 10), // Space between text and image
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BasicProcedures(),
+                  ),
+                );
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  'assets/procedure.png',
+                  fit: BoxFit.contain,
+                  height: 190,
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -130,7 +180,7 @@ class _VideoControlsState extends State<VideoControls> {
             ),
           ],
         ),
-        SizedBox(height: 5), // Reduced space between controls
+        const SizedBox(height: 5), // Reduced space between controls
         Slider(
           value: _isDragging
               ? _controller.value.position.inSeconds.toDouble()
@@ -175,35 +225,6 @@ class _VideoControlsState extends State<VideoControls> {
               },
             ),
           ],
-        ),
-        SizedBox(height: 20),
-        Text(
-          'Some Additional Necessities',
-          style: TextStyle(
-            fontSize: 18, // Text font size
-            fontWeight: FontWeight.bold, // Bold text
-            color: Colors.black, // Text color
-          ),
-          textAlign: TextAlign.center, // Center align text
-        ),
-        SizedBox(height: 10), // Space between text and image
-        InkWell(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => BasicProcedures(),
-              ),
-            );
-          },
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image.asset(
-              'assets/procedure.png',
-              fit: BoxFit.contain,
-              height: 190,
-            ),
-          ),
         ),
       ],
     );

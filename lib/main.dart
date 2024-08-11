@@ -1,10 +1,15 @@
+import 'package:fakemedicine/payment_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:connectivity_plus/connectivity_plus.dart'; // Import connectivity_plus
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart'; // Import shared_preferences
 import 'auth_screen.dart';
+import 'auth_screen_pharma.dart';
 import 'home_screen.dart';
+import 'home_pharma.dart';
 import 'offline_mode_screen.dart';
+import 'splash_screen.dart'; // Import the new splash_screen.dart
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,6 +18,8 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,11 +27,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ConnectivityChecker(), // Use ConnectivityChecker as the home widget
+      home: ConnectivityChecker(),
       routes: {
         '/auth': (context) => AuthScreen(),
+        '/auth_pharma': (context) => AuthScreenPharma(),
         '/home': (context) => HomeScreen(),
+        '/home_pharma': (context) => HomePharmaScreen(),
         '/offline': (context) => OfflineModeScreen(),
+        '/payment': (context) => PaymentPage(pharmacyId: '123'),
       },
     );
   }
@@ -43,13 +53,10 @@ class _ConnectivityCheckerState extends State<ConnectivityChecker> {
   }
 
   Future<void> _checkConnectivity() async {
-    print("Checking connectivity...");
     var connectivityResult = await Connectivity().checkConnectivity();
     if (connectivityResult == ConnectivityResult.none) {
-      print("No internet connection, navigating to OfflineModeScreen.");
       Navigator.of(context).pushReplacementNamed('/offline');
     } else {
-      print("Internet connection available, navigating to AuthStateHandler.");
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => AuthStateHandler(),
       ));
@@ -65,6 +72,11 @@ class _ConnectivityCheckerState extends State<ConnectivityChecker> {
 }
 
 class AuthStateHandler extends StatelessWidget {
+  Future<String?> _getUserChoice() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('userType');
+  }
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<User?>(
@@ -74,9 +86,25 @@ class AuthStateHandler extends StatelessWidget {
           return Center(child: CircularProgressIndicator());
         }
         if (snapshot.data == null) {
-          return AuthScreen();
+          return SplashScreen();
         } else {
-          return HomeScreen();
+          return FutureBuilder<String?>(
+            future: _getUserChoice(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              }
+              if (snapshot.hasData) {
+                if (snapshot.data == 'pharma') {
+                  return HomePharmaScreen();
+                } else {
+                  return HomeScreen();
+                }
+              } else {
+                return SplashScreen();
+              }
+            },
+          );
         }
       },
     );

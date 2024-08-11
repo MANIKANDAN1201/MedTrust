@@ -160,7 +160,6 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
     found = await _checkJsonFile('assets/medicines.json');
 
     if (!found) {
-      // Check in 'Medicines_info.json' if not found in 'medicines.json'
       found = await _checkJsonFile('assets/Medicines_info.json');
     }
 

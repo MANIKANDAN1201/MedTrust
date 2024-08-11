@@ -220,7 +220,10 @@ class _ReportScreenState extends State<ReportScreen> {
               children: [
                 Text(
                   'Please provide the following details to report counterfeit medicine:',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.deepPurple),
                 ),
                 SizedBox(height: 20),
                 _buildTextField(
@@ -331,7 +334,21 @@ class _ReportScreenState extends State<ReportScreen> {
       maxLines: maxLines,
       decoration: InputDecoration(
         labelText: label,
-        border: OutlineInputBorder(),
+        labelStyle: TextStyle(color: Colors.deepPurple), // Change label color
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10), // Rounded borders
+          borderSide: BorderSide(color: Colors.deepPurple), // Border color
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10), // Rounded borders
+          borderSide: BorderSide(color: Colors.deepPurple), // Border color
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10), // Rounded borders
+          borderSide: BorderSide(color: Colors.deepPurple), // Border color
+        ),
+        contentPadding:
+            EdgeInsets.symmetric(vertical: 15, horizontal: 20), // Padding
       ),
       validator: validator,
     );
